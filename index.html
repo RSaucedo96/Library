@@ -25,9 +25,9 @@
 
     <div class="nav">
         <ul>
-          <li>All Books</li>
-          <li>Unfinished Books</li>
-          <li>Finished Books</li>
+          <li>All Games</li>
+          <li>Unfinished Games</li>
+          <li>Finished Games</li>
         </ul>
       </div>
 
@@ -83,17 +83,24 @@
       </div>
 
       <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
-          <h1>Login</h1>
+        <form action="/action_page.php" class="form-container" >
+          <h1>New Game</h1>
       
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <label for="title"><b>Title</b></label>
+          <input type="text" placeholder="Enter title" name="title" required>
       
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <label for="genre"><b>Genre</b></label>
+          <input type="text" placeholder="Enter genre" name="genre" required>
       
-          <button type="submit" class="btn">Login</button>
+          <label for="plataform"><b>Plataform</b></label>
+          <input type="text" placeholder="enter plataform" name="plataform" required>
+          <div>
+            <input type="checkbox" id="state" name="state">
+            <label for="state"><b>Finished?</b></label>
+          </div>
+          <button type="submit" class="btn">Add</button>
           <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            
         </form>
       </div>
 

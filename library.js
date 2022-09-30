@@ -1,12 +1,12 @@
 library = [["The Hobbit", "Tolkien", "168" ,"finished"]];
 
-function Book(title,author,numberPages,state) {
+function Book(title,genre,plataform,state) {
     this.title = title;
-    this.author = author;
-    this.numberPages = numberPages;
+    this.genre = genre;
+    this.plataform = plataform;
     this.state = state;
     this.info=function () {
-        return `Title:${this.title}\nAuthor:${this.author}\nNumber of pages:${this.numberPages}\nState:${this.state}`       
+        return `Title:${this.title}\nAuthor:${this.plataform}\nNumber of pages:${this.genre}\nState:${this.state}`       
     };
 }
 
