@@ -25,13 +25,16 @@ function addGameToLibrary(e) {
 }
 
 function displayLibrary(){
+  document.getElementById("gameLibrary").innerHTML = "";
   for (let index = 0; index < library.length; index++) {
     const newCard = document.createElement("div");
-    const newCardTitle = document.createElement("p").append(`${library[index].title}`);
-    const newCardData = document.createElement("p").append(`Plataform:${library[index].plataform}\nGenre:${library[index].genre}\nState:${library[index].state}`);
+    const newCardTitle = document.createElement("p");
+    const newCardData = document.createElement("p");
     newCard.classList.add("card");
     newCardTitle.classList.add("title");
     newCardData.classList.add("data");
+    newCardTitle.append(`${library[index].title}`);
+    newCardData.append(`Plataform:${library[index].plataform}\nGenre:${library[index].genre}\nState:${library[index].state}`);
     newCard.appendChild(newCardTitle).appendChild(newCardData);
     gameLibrary.appendChild(newCard);
   }
