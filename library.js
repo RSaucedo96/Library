@@ -1,6 +1,11 @@
 library = [{ title: "Spyro", genre: "Plataformer", plataform: "PS1", state: "on" }];
 
-function Book(title,genre,plataform,state) {
+const gameLibrary = document.getElementById("gameLibrary")
+const addGameForm = document.getElementById("addGame-form"); 
+addGameForm.addEventListener("submit", addGameToLibrary);
+displayLibrary();
+
+function Game(title,genre,plataform,state) {
     this.title = title;
     this.genre = genre;
     this.plataform = plataform;
@@ -15,16 +20,29 @@ function addGameToLibrary(e) {
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
   library.push(formProps);
+  displayLibrary()
   console.log(library);
+}
+
+function displayLibrary(){
+  for (let index = 0; index < library.length; index++) {
+    const newCard = document.createElement("div");
+    const newCardTitle = document.createElement("p").append(`${library[index].title}`);
+    const newCardData = document.createElement("p").append(`Plataform:${library[index].plataform}\nGenre:${library[index].genre}\nState:${library[index].state}`);
+    newCard.classList.add("card");
+    newCardTitle.classList.add("title");
+    newCardData.classList.add("data");
+    newCard.appendChild(newCardTitle).appendChild(newCardData);
+    gameLibrary.appendChild(newCard);
+  }
 }
 
 function openForm() {
     document.getElementById("addGame-form").style.display = "block";
   }
   
-  function closeForm() {
+function closeForm() {
     document.getElementById("addGame-form").style.display = "none";
   } 
 
-const addGameForm = document.getElementById("addGame-form"); 
-addGameForm.addEventListener("submit", addGameToLibrary);
+
