@@ -1,4 +1,4 @@
-library = [["The Hobbit", "Tolkien", "168" ,"finished"]];
+library = [{ title: "Spyro", genre: "Plataformer", plataform: "PS1", state: "on" }];
 
 function Book(title,genre,plataform,state) {
     this.title = title;
@@ -10,18 +10,21 @@ function Book(title,genre,plataform,state) {
     };
 }
 
-function addBookToLibrary() {
-    
+function addGameToLibrary(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const formProps = Object.fromEntries(formData);
+  library.push(formProps);
+  console.log(library);
 }
 
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+    document.getElementById("addGame-form").style.display = "block";
   }
   
   function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+    document.getElementById("addGame-form").style.display = "none";
   } 
-  
-const theHobbit = new Book("The Hobbit", "Tolkien", "168" ,"finished");
 
-console.log(theHobbit.info());
+const addGameForm = document.getElementById("addGame-form"); 
+addGameForm.addEventListener("submit", addGameToLibrary);
