@@ -24,7 +24,7 @@ function addGameToLibrary(e) {
   const game  = new Game(title,genre,plataform);
   
   library.push(game);
-  
+  clearFields()
   displayLibrary();
 }
 
@@ -38,12 +38,13 @@ function displayLibrary(){
     
     deleteCard.addEventListener('click', function handleClick(event) {
       event.target.parentElement.remove();
+      library = library.filter(element => element !== library[event.target.parentElement.id]);
     });
     
     deleteCard.innerHTML = "Delete Game";
   
     newCard.classList.add("card");
-    newCard.setAttribute('id',`card-${index}`);
+    newCard.setAttribute('id',`${index}`);
     
     newCardTitle.classList.add("title");
     newCardData.classList.add("data");
@@ -56,6 +57,12 @@ function displayLibrary(){
     newCard.appendChild(deleteCard);
     gameLibrary.appendChild(newCard);
   }
+}
+
+function clearFields() {
+  document.querySelector('#title').value='';
+  document.querySelector('#genre').value='';
+  document.querySelector('#plataform').value='';
 }
 
 
