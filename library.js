@@ -1,8 +1,8 @@
 library = [{ title: "Spyro", genre: "Plataformer", plataform: "PS1", state: "on" }];
 
 const gameLibrary = document.getElementById("gameLibrary")
-const addGameForm = document.getElementById("addGame-form"); 
-addGameForm.addEventListener("submit", addGameToLibrary);
+const gameForm = document.getElementById("game-form"); 
+gameForm.addEventListener("submit", addGameToLibrary);
 displayLibrary();
 
 function Game(title,genre,plataform,state) {
@@ -17,11 +17,15 @@ function Game(title,genre,plataform,state) {
 
 function addGameToLibrary(e) {
   e.preventDefault();
-  const formData = new FormData(e.target);
-  const formProps = Object.fromEntries(formData);
-  library.push(formProps);
-  displayLibrary()
-  console.log(library);
+  const title = document.querySelector('#title').value;
+  const genre = document.querySelector('#genre').value;
+  const plataform = document.querySelector('#plataform').value;
+  
+  const game  = new Game(title,genre,plataform);
+  
+  library.push(game);
+  
+  displayLibrary();
 }
 
 function displayLibrary(){
@@ -57,11 +61,11 @@ function displayLibrary(){
 
 
 function openForm() {
-    document.getElementById("addGame-form").style.display = "block";
+    document.getElementById("game-form").style.display = "block";
   }
   
 function closeForm() {
-    document.getElementById("addGame-form").style.display = "none";
+    document.getElementById("game-form").style.display = "none";
   } 
 
 
