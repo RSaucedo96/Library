@@ -79,11 +79,17 @@
     text-align: center;
     height: 200px;
   }
-  
+  .card {
+    display:flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
   .card p {
     color: black;
     font-weight: normal;
     font-size: 14px;
+    text-align: center;
     padding: 5px;
   }
   
@@ -91,6 +97,14 @@
     font-size: 18px;
     text-align: center;
   }
+
+  .card label {
+    color: black;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 5px;
+    }
+
   
   .footer {
     background-color: #393f4d;
